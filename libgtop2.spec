@@ -13,12 +13,13 @@
 %define	pkgname		libgtop
 %define api_version	2.0
 %define lib_major	7
-%define lib_name	%mklibname gtop %{api_version} %{lib_major}
+%define libname	%mklibname gtop %{api_version} %{lib_major}
+%define libnamedev %mklibname -d gtop %{api_version}
 %define last_abi_break_version 2.14.0
 
 Summary:	The LibGTop library
 Name:     	%{pkgname}2
-Version: 2.19.5
+Version: 2.19.91
 Release: %mkrel 1
 License:	GPL
 Group:		System/Libraries
@@ -42,14 +43,14 @@ On Linux systems, this information is taken directly from the /proc
 filesystem while on other systems a server is used to read that
 information from other /dev/kmem, among others.
 
-%package -n %{lib_name}
+%package -n %{libname}
 Summary:	%{summary}
 Group:		%{group}
 Provides:	%{pkgname}%{api_version} = %{version}-%{release}
 Requires:   %{name} >= %{version}
 Requires:	libglib2.0 >= %{req_glib2_version}
 
-%description -n %{lib_name}
+%description -n %{libname}
 LibGTop is a library that fetches information about the running
 system such as CPU and memory useage, active processes and more.
 
@@ -57,15 +58,16 @@ On Linux systems, this information is taken directly from the /proc
 filesystem while on other systems a server is used to read that
 information from other /dev/kmem, among others.
 
-%package -n %{lib_name}-devel
+%package -n %{libnamedev}
 Summary:	Development files for %{pkgname}
 Group:		Development/GNOME and GTK+
 Provides:	%{pkgname}%{api_version}-devel = %{version}-%{release}
-Requires:	%{lib_name} = %{version}
+Requires:	%{libname} = %{version}
 Requires:	libglib2.0-devel >= %{req_glib2_version}
 Conflicts:	%{pkgname}%{api_version}-devel < %{last_abi_break_version}
+Obsoletes: %mklibname -d gtop %{api_version} %{lib_major}
 
-%description -n %{lib_name}-devel
+%description -n %{libnamedev}
 LibGTop is a library that fetches information about the running
 system such as CPU and memory useage, active processes and more.
 
@@ -103,14 +105,14 @@ rm -rf $RPM_BUILD_ROOT%{_libdir}/libgnomesupport* \
 %clean
 rm -rf %{buildroot}
 
-%post -n %{lib_name} -p /sbin/ldconfig
+%post -n %{libname} -p /sbin/ldconfig
 
-%postun -n %{lib_name} -p /sbin/ldconfig
+%postun -n %{libname} -p /sbin/ldconfig
 
-%post -n %{lib_name}-devel
+%post -n %{libnamedev}
 %_install_info %{name}.info
 
-%postun -n %{lib_name}-devel
+%postun -n %{libnamedev}
 %_remove_install_info %{name}.info
 
 %files -f %{pkgname}-%{api_version}.lang
@@ -128,12 +130,12 @@ rm -rf %{buildroot}
 %{_libdir}/%{pkgname}/timings*
 %endif
 
-%files -n %{lib_name}
+%files -n %{libname}
 %defattr(-, root, root)
 %doc NEWS README
 %{_libdir}/lib*.so.%{lib_major}*
 
-%files -n %{lib_name}-devel
+%files -n %{libnamedev}
 %defattr(-, root, root)
 %doc AUTHORS ChangeLog
 %{_includedir}/%{pkgname}-%{api_version}
