@@ -19,7 +19,7 @@
 
 Summary:	The LibGTop library
 Name:     	%{pkgname}2
-Version: 2.19.91
+Version: 2.19.92
 Release: %mkrel 1
 License:	GPL
 Group:		System/Libraries
