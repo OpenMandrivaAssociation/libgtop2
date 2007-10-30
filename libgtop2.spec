@@ -20,7 +20,7 @@
 Summary:	The LibGTop library
 Name:     	%{pkgname}2
 Version: 2.21.1
-Release: %mkrel 1
+Release: %mkrel 2
 License:	GPL
 Group:		System/Libraries
 URL:		http://www.gnome.org/
@@ -31,7 +31,8 @@ Source0: 	http://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version
 Patch0:		libgtop-2.0.0-prog_as.patch
 
 BuildRequires:	libglib2.0-devel >= %{req_glib2_version}
-BuildRequires:	popt-devel
+BuildRequires:	libxau-devel
+BuildRequires:	texinfo
 BuildRequires:	autoconf2.5 automake1.7 intltool
 BuildRequires:	gtk-doc
 
@@ -90,6 +91,7 @@ WANT_AUTOCONF_2_5=1 autoheader
 %endif
 
 %make
+
 
 %install
 rm -rf %{buildroot}
