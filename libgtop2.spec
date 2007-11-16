@@ -20,21 +20,19 @@
 Summary:	The LibGTop library
 Name:     	%{pkgname}2
 Version: 2.21.1
-Release: %mkrel 2
+Release: %mkrel 3
 License:	GPL
 Group:		System/Libraries
 URL:		http://www.gnome.org/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 Source0: 	http://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
-# (fc) 2.0.2-1mdk fix autoconf/automake environment (rawhide)
-Patch0:		libgtop-2.0.0-prog_as.patch
 
 BuildRequires:	libglib2.0-devel >= %{req_glib2_version}
 BuildRequires:	libxau-devel
 BuildRequires:	texinfo
-BuildRequires:	autoconf2.5 automake1.7 intltool
 BuildRequires:	gtk-doc
+BuildRequires:  intltool
 
 %description
 LibGTop is a library that fetches information about the running
@@ -77,12 +75,6 @@ information on system statistics such as CPU and memory usage.
 
 %prep
 %setup -q -n %{pkgname}-%{version}
-%patch0 -p1 -b .prog_as
-
-aclocal-1.7
-automake-1.7 --add-missing --force-missing
-WANT_AUTOCONF_2_5=1 autoconf
-WANT_AUTOCONF_2_5=1 autoheader
 
 %build
 %configure2_5x \
@@ -98,11 +90,6 @@ rm -rf %{buildroot}
 %makeinstall_std 
 
 %{find_lang} %{pkgname}-%{api_version}
-
-#remove unpackaged files
-rm -rf $RPM_BUILD_ROOT%{_libdir}/libgnomesupport* \
- $RPM_BUILD_ROOT%{_bindir}/libgtop_daemon2 \
- $RPM_BUILD_ROOT%{_libdir}/libgtop/include
 
 %clean
 rm -rf %{buildroot}
@@ -140,11 +127,9 @@ rm -rf %{buildroot}
 %files -n %{libnamedev}
 %defattr(-, root, root)
 %doc AUTHORS ChangeLog
+%doc %_datadir/gtk-doc/html/*
 %{_includedir}/%{pkgname}-%{api_version}
 %{_libdir}/lib*.so
 %attr(644,root,root) %{_libdir}/*a
 %{_libdir}/pkgconfig/*
 %{_infodir}/*.info*
-%_datadir/gtk-doc/html/*
-
-
