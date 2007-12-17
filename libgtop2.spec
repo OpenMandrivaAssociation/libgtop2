@@ -24,7 +24,6 @@ Release: %mkrel 3
 License:	GPL
 Group:		System/Libraries
 URL:		http://www.gnome.org/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 Source0: 	http://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
 
