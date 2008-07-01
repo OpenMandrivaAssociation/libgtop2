@@ -19,9 +19,9 @@
 
 Summary:	The LibGTop library
 Name:     	%{pkgname}2
-Version: 2.22.2
+Version: 2.22.3
 Release: %mkrel 1
-License:	GPL
+License:	GPLv2+
 Group:		System/Libraries
 URL:		http://www.gnome.org/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root
