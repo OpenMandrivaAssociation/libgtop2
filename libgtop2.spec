@@ -19,7 +19,7 @@
 
 Summary:	The LibGTop library
 Name:     	%{pkgname}2
-Version: 2.24.0
+Version: 2.24.3
 Release: %mkrel 1
 License:	GPLv2+
 Group:		System/Libraries
@@ -27,6 +27,7 @@ URL:		http://www.gnome.org/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 Source0: 	http://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
+Patch: libgtop-2.24.3-format-strings.patch
 
 BuildRequires:	libglib2.0-devel >= %{req_glib2_version}
 BuildRequires:	libxau-devel
@@ -75,6 +76,7 @@ information on system statistics such as CPU and memory usage.
 
 %prep
 %setup -q -n %{pkgname}-%{version}
+%patch -p1
 
 %build
 %configure2_5x \
