@@ -19,8 +19,8 @@
 
 Summary:	The LibGTop library
 Name:     	%{pkgname}2
-Version: 2.28.0
-Release: %mkrel 2
+Version: 2.28.1
+Release: %mkrel 1
 License:	GPLv2+
 Group:		System/Libraries
 URL:		http://www.gnome.org/
