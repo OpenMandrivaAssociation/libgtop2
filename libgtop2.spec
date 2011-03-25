@@ -19,8 +19,8 @@
 
 Summary:	The LibGTop library
 Name:     	%{pkgname}2
-Version: 2.28.2
-Release: %mkrel 2
+Version: 2.28.3
+Release: %mkrel 1
 License:	GPLv2+
 Group:		System/Libraries
 URL:		http://www.gnome.org/
@@ -28,6 +28,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 Source0: 	http://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
 BuildRequires:	glib2-devel >= %{req_glib2_version}
+BuildRequires:	gobject-introspection-devel
 BuildRequires:	libxau-devel
 BuildRequires:	texinfo
 BuildRequires:	gtk-doc
@@ -126,6 +127,7 @@ rm -rf %{buildroot}
 %defattr(-, root, root)
 %doc NEWS README
 %{_libdir}/lib*.so.%{lib_major}*
+%{_libdir}/girepository-1.0/GTop-%{api_version}.typelib
 
 %files -n %{libnamedev}
 %defattr(-, root, root)
@@ -136,3 +138,4 @@ rm -rf %{buildroot}
 %attr(644,root,root) %{_libdir}/*a
 %{_libdir}/pkgconfig/*
 %{_infodir}/*.info*
+%_datadir/gir-1.0/GTop-%{api_version}.gir
