@@ -19,14 +19,14 @@
 
 Summary:	The LibGTop library
 Name:     	%{pkgname}2
-Version: 2.28.3
-Release: %mkrel 2
+Version: 2.28.4
+Release: %mkrel 1
 License:	GPLv2+
 Group:		System/Libraries
 URL:		http://www.gnome.org/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
-Source0: 	http://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
+Source0: 	http://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.xz
 BuildRequires:	glib2-devel >= %{req_glib2_version}
 BuildRequires:	gobject-introspection-devel
 BuildRequires:	libxau-devel
