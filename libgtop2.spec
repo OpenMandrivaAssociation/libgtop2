@@ -15,10 +15,7 @@ URL:		http://www.gnome.org/
 
 Source0: 	http://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.xz
 
-BuildRequires:	gtk-doc
 BuildRequires:  intltool
-BuildRequires:	texinfo
-BuildRequires:	pkgconfig(glib-2.0) >= 2.0.0
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(xau)
 
