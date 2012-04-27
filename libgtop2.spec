@@ -1,18 +1,18 @@
 %define pkgname		libgtop
-%define api_version	2.0
-%define lib_major	7
-%define libname	%mklibname gtop %{api_version} %{lib_major}
-%define girname %mklibname gtop-gir %{api_version}
-%define develname %mklibname -d gtop %{api_version}
+
+%define api	2.0
+%define major	7
+%define libname	%mklibname gtop %{api} %{major}
+%define girname %mklibname gtop-gir %{api}
+%define develname %mklibname -d gtop %{api}
 
 Summary:	The LibGTop library
 Name:     	%{pkgname}2
 Version:	2.28.4
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		System/Libraries
 URL:		http://www.gnome.org/
-
 Source0: 	http://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.xz
 
 BuildRequires:  intltool
@@ -30,7 +30,8 @@ information from other /dev/kmem, among others.
 %package -n %{libname}
 Summary:	%{summary}
 Group:		%{group}
-Provides:	%{pkgname}%{api_version} = %{version}-%{release}
+Provides:	%{pkgname}%{api} = %{version}-%{release}
+Suggests:	%{name} = %{version}-%{release}
 
 %description -n %{libname}
 LibGTop is a library that fetches information about the running
@@ -43,7 +44,6 @@ information from other /dev/kmem, among others.
 %package -n %{girname}
 Summary:	GObject Introspection interface description for %{name}
 Group:		System/Libraries
-Requires:	%{libname} = %{version}-%{release}
 
 %description -n %{girname}
 GObject Introspection interface description for %{name}.
@@ -51,8 +51,9 @@ GObject Introspection interface description for %{name}.
 %package -n %{develname}
 Summary:	Development files for %{pkgname}
 Group:		Development/GNOME and GTK+
-Provides:	%{pkgname}%{api_version}-devel = %{version}-%{release}
+Provides:	%{pkgname}%{api}-devel = %{version}-%{release}
 Requires:	%{libname} = %{version}-%{release}
+Requires:	%{girname} = %{version}-%{release}
 
 %description -n %{develname}
 LibGTop is a library that fetches information about the running
@@ -62,19 +63,18 @@ Install this package if you wish to develop applications that access
 information on system statistics such as CPU and memory usage.
 
 %prep
-%setup -q -n %{pkgname}-%{version}
+%setup -qn %{pkgname}-%{version}
 
 %build
 %configure2_5x \
-	--disable-static \
+	--disable-static
 
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std 
 find %{buildroot} -name *.la | xargs rm
-%{find_lang} %{pkgname}-%{api_version}
+%{find_lang} %{pkgname}-%{api}
 
 %post -n %{develname}
 %_install_info %{name}.info
@@ -82,21 +82,21 @@ find %{buildroot} -name *.la | xargs rm
 %postun -n %{develname}
 %_remove_install_info %{name}.info
 
-%files -f %{pkgname}-%{api_version}.lang
+%files -f %{pkgname}-%{api}.lang
 %doc NEWS README
 
 %files -n %{libname}
-%{_libdir}/lib*.so.%{lib_major}*
+%{_libdir}/lib*.so.%{major}*
 
 %files -n %{girname}
-%{_libdir}/girepository-1.0/GTop-%{api_version}.typelib
+%{_libdir}/girepository-1.0/GTop-%{api}.typelib
 
 %files -n %{develname}
 %doc AUTHORS ChangeLog
-%doc %_datadir/gtk-doc/html/*
-%{_includedir}/%{pkgname}-%{api_version}
+%{_includedir}/%{pkgname}-%{api}
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/*
 %{_infodir}/*.info*
-%_datadir/gir-1.0/GTop-%{api_version}.gir
+%{_datadir}/gir-1.0/GTop-%{api}.gir
+%doc %{_datadir}/gtk-doc/html/*
 
