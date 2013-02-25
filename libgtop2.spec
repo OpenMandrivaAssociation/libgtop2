@@ -25,7 +25,7 @@ License:	GPLv2+
 Group:		System/Libraries
 URL:		http://www.gnome.org/
 
-Source0: 	http://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
+Source0: 	http://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.xz
 BuildRequires:	glib2-devel >= %{req_glib2_version}
 BuildRequires:	gobject-introspection-devel
 BuildRequires:	libxau-devel
