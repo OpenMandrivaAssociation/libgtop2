@@ -2,15 +2,15 @@
 
 %define pkgname	libgtop
 %define api	2.0
-%define major	7
+%define major	10
 %define libname	%mklibname gtop %{api} %{major}
 %define girname %mklibname gtop-gir %{api}
 %define devname	%mklibname -d gtop %{api}
 
 Summary:	The LibGTop library
 Name:		%{pkgname}2
-Version:	2.28.4
-Release:	11
+Version:	2.30.0
+Release:	1
 License:	GPLv2+
 Group:		System/Libraries
 Url:		http://www.gnome.org/
