@@ -19,6 +19,9 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/%{url_ver}/%{pkgname}-%{
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(xau)
+BuildRequires:	pkgconfig(glib-2.0)
+BuildRequires:	gtk-doc
+BuildRequires:	texinfo
 
 %description
 LibGTop is a library that fetches information about the running
