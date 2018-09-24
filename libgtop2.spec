@@ -75,9 +75,9 @@ information on system statistics such as CPU and memory usage.
 
 %install
 %makeinstall_std 
-%find_lang %{pkgname}-%{api}
+#find_lang %{pkgname}-%{api}
 
-%files -f %{pkgname}-%{api}.lang
+#files -f %{pkgname}-%{api}.lang
 %doc NEWS README
 
 %files -n %{libname}
