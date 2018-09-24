@@ -1,4 +1,5 @@
 removed_sources:
   libgtop-2.30.0.tar.xz: ad63d489a6530df5da2559f602c839fd5701a188
-sources:
   libgtop-2.32.0.tar.xz: d7ab9621b236931fa8db6d364e6dc8e9fddd5df5
+sources:
+  libgtop-2.38.0.tar.xz: c04fbc2260aaec89c9d598a84762788d18f87608

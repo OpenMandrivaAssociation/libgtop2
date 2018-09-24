@@ -2,14 +2,14 @@
 
 %define pkgname	libgtop
 %define api	2.0
-%define major	10
+%define major	11
 %define libname	%mklibname gtop %{api} %{major}
 %define girname %mklibname gtop-gir %{api}
 %define devname	%mklibname -d gtop %{api}
 
 Summary:	The LibGTop library
 Name:		%{pkgname}2
-Version:	2.32.0
+Version:	2.38.0
 Release:	1
 License:	GPLv2+
 Group:		System/Libraries
@@ -19,6 +19,9 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/%{url_ver}/%{pkgname}-%{
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(xau)
+BuildRequires:	pkgconfig(glib-2.0)
+BuildRequires:	gtk-doc
+BuildRequires:	texinfo
 
 %description
 LibGTop is a library that fetches information about the running
@@ -72,9 +75,9 @@ information on system statistics such as CPU and memory usage.
 
 %install
 %makeinstall_std 
-%find_lang %{pkgname}-%{api}
+%find_lang %{pkgname}
 
-%files -f %{pkgname}-%{api}.lang
+%files -f %{pkgname}.lang
 %doc NEWS README
 
 %files -n %{libname}
