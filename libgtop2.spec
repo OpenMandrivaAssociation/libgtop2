@@ -79,6 +79,8 @@ information on system statistics such as CPU and memory usage.
 
 %files -f %{pkgname}.lang
 %doc NEWS README
+%{_bindir}/libgtop_daemon2
+%{_bindir}/libgtop_server2
 
 %files -n %{libname}
 %{_libdir}/libgtop-%{api}.so.%{major}*
