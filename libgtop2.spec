@@ -9,8 +9,8 @@
 
 Summary:	The LibGTop library
 Name:		%{pkgname}2
-Version:	2.38.0
-Release:	2
+Version:	2.40.0
+Release:	1
 License:	GPLv2+
 Group:		System/Libraries
 Url:		http://www.gnome.org/
@@ -71,10 +71,10 @@ information on system statistics such as CPU and memory usage.
 %configure2_5x \
 	--disable-static
 
-%make
+%make_build
 
 %install
-%makeinstall_std 
+%make_install
 %find_lang %{pkgname}
 
 %files -f %{pkgname}.lang
