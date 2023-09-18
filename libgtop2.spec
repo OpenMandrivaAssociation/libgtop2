@@ -9,12 +9,12 @@
 
 Summary:	The LibGTop library
 Name:		%{pkgname}2
-Version:	2.40.0
-Release:	8
+Version:	2.41.1
+Release:	1
 License:	GPLv2+
 Group:		System/Libraries
-Url:		http://www.gnome.org/
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgtop/%{url_ver}/%{pkgname}-%{version}.tar.xz
+Url:		https://www.gnome.org/
+Source0:	https://ftp.gnome.org/pub/GNOME/sources/libgtop/%{url_ver}/%{pkgname}-%{version}.tar.xz
 
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
@@ -68,7 +68,7 @@ information on system statistics such as CPU and memory usage.
 %setup -qn %{pkgname}-%{version}
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static
 
 %make_build
@@ -79,8 +79,8 @@ information on system statistics such as CPU and memory usage.
 
 %files -f %{pkgname}.lang
 %doc NEWS README
-%{_bindir}/libgtop_daemon2
-%{_bindir}/libgtop_server2
+%{_libexecdir}/libgtop_daemon2
+%{_libexecdir}/libgtop_server2
 
 %files -n %{libname}
 %{_libdir}/libgtop-%{api}.so.%{major}*
