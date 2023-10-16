@@ -9,7 +9,7 @@
 
 Summary:	The LibGTop library
 Name:		%{pkgname}2
-Version:	2.41.1
+Version:	2.41.2
 Release:	1
 License:	GPLv2+
 Group:		System/Libraries
