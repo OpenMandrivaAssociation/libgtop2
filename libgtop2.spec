@@ -16,6 +16,11 @@ Group:		System/Libraries
 Url:		https://www.gnome.org/
 Source0:	https://ftp.gnome.org/pub/GNOME/sources/libgtop/%{url_ver}/%{pkgname}-%{version}.tar.xz
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(xau)
