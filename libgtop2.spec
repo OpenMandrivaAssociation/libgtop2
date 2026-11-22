@@ -9,8 +9,8 @@
 
 Summary:	The LibGTop library
 Name:		%{pkgname}2
-Version:	2.41.3
-Release:	7
+Version:	2.41.4
+Release:	1
 License:	GPLv2+
 Group:		System/Libraries
 Url:		https://www.gnome.org/
